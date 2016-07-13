@@ -109,7 +109,7 @@ class ControllerHybridAuth extends Controller {
                 $customer_id = $this->model_hybrid_auth->findCustomerByEmail($user_profile->email);
 
                 if ($customer_id) {
-                    die('<script>alert("' . sprintf($this->language->get('text_provider_email_already_exists'), $provider, $user_profile->email) . '");window.close();window.opener.location.reload();</script>');
+                    die('<script>alert("' . sprintf($this->language->get('text_provider_email_already_exists'), $provider, $user_profile->email) . '");window.location = "'.$this->url->link('account/account').'";</script>');
                 }
             }
 
