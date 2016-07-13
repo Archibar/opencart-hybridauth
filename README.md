@@ -25,9 +25,11 @@ Install:
 1. Copy 'upload' content into the root
 2. Go to the admin panel & install OpenCart HybridAuth module
 3. Сonfigure it to providers 
-4. Import SQL dump
-5. Add simple code to your template from example.tpl
-6. After line: public function deleteCustomer($customer_id) { in file admin/model/sale/customer.php add next code: $this->db->query("DELETE FROM " . DB_PREFIX . "customer_authentication WHERE customer_id = '" . (int)$customer_id . "'");
+4. Add simple code to your template from example.tpl
+5. Add customer delete code:
+    - In file: `admin/model/sale/customer.php`
+    - after line: `public function deleteCustomer($customer_id) {`
+    - add next code: `$this->db->query("DELETE FROM " . DB_PREFIX . "customer_authentication WHERE customer_id = '" . (int)$customer_id . "'");`
 
 Information:
 

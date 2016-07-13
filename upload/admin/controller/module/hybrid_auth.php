@@ -179,4 +179,16 @@ class ControllerModuleHybridAuth extends Controller {
             return false;
         }
     }
+
+    public function install() {
+        $this->load->model('module/hybrid_auth');
+        $this->model_module_hybrid_auth->createTable();
+    }
+
+    public function uninstall() {
+        $this->load->model('module/hybrid_auth');
+        $this->model_module_hybrid_auth->dropTable();
+        $this->load->model('setting/setting');
+        $this->model_setting_setting->deleteSetting('hybrid_auth');
+    }
 }
